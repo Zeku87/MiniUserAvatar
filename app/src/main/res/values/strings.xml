@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MiniUserAvatar</string>
+
+    <string name="new_list_button">New User</string>
+    <string name="user_list_button">User List</string>
+
+    <string name="name_hint_edit_text">Type your name</string>
+    <string name="avatar_url">No avatar selected</string>
+    <string name="avatar_browsing_button">Browse for pics</string>
+</resources>
