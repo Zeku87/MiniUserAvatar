@@ -5,6 +5,13 @@
     <string name="user_list_button">User List</string>
 
     <string name="name_hint_edit_text">Type your name</string>
+    <string name="email_hint_edit_text">Type your email</string>
     <string name="avatar_url">No avatar selected</string>
     <string name="avatar_browsing_button">Browse for pics</string>
+
+    <string name="accept_button_text">Accept</string>
+    <string name="cancel_button_text">Cancel</string>
+
+    <string name="success_user_added_toast_msg">User added successfully!</string>
+    <string name="error_user_added_toast_msg">Error on trying adding a new user</string>
 </resources>
