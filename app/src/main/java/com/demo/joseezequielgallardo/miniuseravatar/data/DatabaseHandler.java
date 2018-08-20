@@ -2,8 +2,12 @@ package com.demo.joseezequielgallardo.miniuseravatar.data;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
@@ -55,5 +59,31 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         database.close();
 
         return resultCode > 0;
+    }
+
+
+    /// SELECTIONS
+
+    public List<User> selectAllUsers(){
+        SQLiteDatabase database = this.getReadableDatabase();
+        List<User> userList = new ArrayList<>();
+
+        String query = "SELECT * FROM " + USER_TABLE_NAME;
+        Cursor cursor = database.rawQuery(query, null);
+
+        if(cursor != null && cursor.moveToFirst()){
+            do{
+                User user = new User();
+                user.setName(cursor.getString(0));
+                user.setEmail(cursor.getString(1));
+                user.setAvatarUrl(cursor.getString(2));
+                userList.add(user);
+            }while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        database.close();
+
+        return userList;
     }
 }

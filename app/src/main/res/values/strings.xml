@@ -14,4 +14,5 @@
 
     <string name="success_user_added_toast_msg">User added successfully!</string>
     <string name="error_user_added_toast_msg">Error on trying adding a new user</string>
+    <string name="permission_not_allowed_toast_msg">We won\'t touch anything</string>
 </resources>
