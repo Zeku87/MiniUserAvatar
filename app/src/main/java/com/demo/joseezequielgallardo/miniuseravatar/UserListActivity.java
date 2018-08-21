@@ -17,18 +17,14 @@ import pub.devrel.easypermissions.EasyPermissions;
 
 public class UserListActivity extends AppCompatActivity {
 
-    private String[] galleryPermissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ActivityUserListBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_user_list);
-
-        EasyPermissions.requestPermissions(this, "Access to your gallery is needed", 101, galleryPermissions);
-        boolean hasPermission = EasyPermissions.hasPermissions(this, galleryPermissions);
-        Log.d("Permission", "" + hasPermission);
+        ActivityUserListBinding binding = DataBindingUtil
+                .setContentView(this, R.layout.activity_user_list);
 
         DatabaseHandler db = DatabaseHandler.getInstance(this);
         List<User> userList = db.selectAllUsers();

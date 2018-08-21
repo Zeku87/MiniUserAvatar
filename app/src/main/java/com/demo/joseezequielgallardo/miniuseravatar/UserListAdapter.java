@@ -1,9 +1,7 @@
 package com.demo.joseezequielgallardo.miniuseravatar;
 
-import android.Manifest;
 import android.content.Context;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +14,7 @@ import com.demo.joseezequielgallardo.miniuseravatar.data.User;
 
 import java.util.List;
 
-import pub.devrel.easypermissions.EasyPermissions;
-
 public class UserListAdapter extends BaseAdapter {
-    private String[] galleryPermissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private List<User> userList;
     private Context context;
 
@@ -55,13 +50,10 @@ public class UserListAdapter extends BaseAdapter {
         TextView nameTextView = view.findViewById(R.id.user_name_text_view);
         TextView emailTextView = view.findViewById(R.id.user_email_text_view);
 
-
-        if(EasyPermissions.hasPermissions(context, galleryPermissions)) {
-            avatarImageView.setImageBitmap(BitmapFactory.decodeFile(this.userList.get(i).getAvatarUrl()));
-            Log.d("ADAPTER", "URL: " + this.userList.get(i).getAvatarUrl());
-            nameTextView.setText(this.userList.get(i).getName());
-            emailTextView.setText(this.userList.get(i).getEmail());
-        }
+        avatarImageView.setImageBitmap(BitmapFactory.decodeFile(this.userList.get(i).getAvatarUrl()));
+        Log.d("ADAPTER", "URL: " + this.userList.get(i).getAvatarUrl());
+        nameTextView.setText(this.userList.get(i).getName());
+        emailTextView.setText(this.userList.get(i).getEmail());
 
         return view;
     }
